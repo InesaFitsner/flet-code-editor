@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "flet-code-editor"
+version = "0.1.0"
+description = ""
+authors = ["InesaFitsner <inesa@appveyor.com>"]
+readme = "README.md"
+packages = [{include = "flet_code_editor"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flet = "^0.24.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

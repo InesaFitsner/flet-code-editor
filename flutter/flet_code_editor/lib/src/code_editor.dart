@@ -12,17 +12,18 @@ class CodeEditorControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: CodeTheme(
-          data: CodeThemeData(styles: monokaiSublimeTheme),
-          child: const SingleChildScrollView(
-            child: TextField(
-              //controller: controller,
-              maxLines: null,
-            ),
-          ),
-        ),
-      );
+    // return Scaffold(
+    //     body: CodeTheme(
+    //       data: CodeThemeData(styles: monokaiSublimeTheme),
+    //       child: const SingleChildScrollView(
+    //         child: TextField(
+    //           //controller: controller,
+    //           maxLines: null,
+    //         ),
+    //       ),
+    //     ),
+    //   );
+    return const Text("This is CodeEditor");
   }
 }
 
