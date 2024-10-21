@@ -7,33 +7,30 @@ import 'package:flutter_highlight/themes/monokai-sublime.dart';
 import 'package:highlight/languages/python.dart';
 //import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-const fletSnippet = '''
-import flet as ft
-from controls.code_editor import CodeEditor
 
 
-def main(page: ft.Page):
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+class CodeEditorControl extends StatelessWidget {
+  final Control? parent;
+  final Control control;
+  
+  const CodeEditorControl({
+    super.key,
+    required this.parent,
+    required this.control,
+  });
 
-    page.add(CodeEditor())
 
 
-ft.app(main)
-''';
+  @override
 
-final controller = CodeController(
+
+  Widget build(BuildContext context) {
+    String? fletSnippet = control.attrString("value");
+
+    CodeController controller = CodeController(
   text: fletSnippet,
   language: python,
 );
-
-class CodeEditorControl extends StatelessWidget {
-  const CodeEditorControl({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
         body: CodeTheme(
           data: CodeThemeData(styles: monokaiSublimeTheme),
