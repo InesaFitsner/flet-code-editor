@@ -17,8 +17,8 @@ def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
     page.add(CodeEditor())
-    
-ft.app(main)"""
+
+ft.app(main)""", read_only=True
 ))
 
 

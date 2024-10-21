@@ -19,17 +19,15 @@ class CodeEditorControl extends StatelessWidget {
     required this.control,
   });
 
-
-
   @override
-
-
   Widget build(BuildContext context) {
-    String? fletSnippet = control.attrString("value");
+    String? text = control.attrString("value");
+    bool readOnly = control.attrBool("readOnly", false)!;
 
     CodeController controller = CodeController(
-  text: fletSnippet,
+  text: text,
   language: python,
+  readOnly: readOnly,
 );
     return Scaffold(
         body: CodeTheme(
