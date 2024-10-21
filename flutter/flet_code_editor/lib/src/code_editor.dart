@@ -2,8 +2,30 @@ import 'package:flet/flet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
+//import 'package:highlight/languages/java.dart';
+//import 'package:highlight/languages/all.dart';
+import 'package:highlight/languages/python.dart';
 //import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+const fletSnippet = '''
+import flet as ft
+from controls.code_editor import CodeEditor
+
+
+def main(page: ft.Page):
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+    page.add(CodeEditor())
+
+
+ft.app(main)
+''';
+
+final controller = CodeController(
+  text: fletSnippet,
+  language: python,
+);
 
 class CodeEditorControl extends StatelessWidget {
   const CodeEditorControl({
@@ -12,18 +34,17 @@ class CodeEditorControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //     body: CodeTheme(
-    //       data: CodeThemeData(styles: monokaiSublimeTheme),
-    //       child: const SingleChildScrollView(
-    //         child: TextField(
-    //           //controller: controller,
-    //           maxLines: null,
-    //         ),
-    //       ),
-    //     ),
-    //   );
-    return const Text("This is CodeEditor");
+    return Scaffold(
+        body: CodeTheme(
+          data: CodeThemeData(styles: monokaiSublimeTheme),
+          child: SingleChildScrollView(
+            child: CodeField(
+              controller: controller,
+            ),
+          ),
+        ),
+      );
+    //return const Text("This is CodeEditor");
   }
 }
 
